@@ -17,7 +17,9 @@ dependencies {
 }
 
 task convert(type: JavaExec){
-    main = "net.alvinmeimoun.xml2json.Xml2JsonMain"
-    classpath = sourceSets.main.runtimeClasspath
-    args = ["$srcFile", "$destFile"]
+    if (this.hasProperty("srcFile")){
+        main = "net.alvinmeimoun.xml2json.Xml2JsonMain"
+        classpath = sourceSets.main.runtimeClasspath
+        args = ["$srcFile", "$destFile"]
+    }
 }
